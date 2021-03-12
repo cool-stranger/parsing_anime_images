@@ -22,11 +22,11 @@ def download_image(link, num_of_photo=[0]):
     soup = BeautifulSoup(req.text, "lxml")
     src = soup.find("img", class_="wallpaper__image")
     img = requests.get(src.get("src"), headers=headers)
-    name_of_file = os.path.basename(img.url).split("_")
-    del name_of_file[-1]
-    del name_of_file[-1]
-    name_of_file = " ".join(name_of_file)
-    with open(f"images/{str(name_of_file)}.jpg", "wb") as file:
+    # name_of_file = os.path.basename(img.url).split("_")
+    # del name_of_file[-1]
+    # del name_of_file[-1]
+    # name_of_file = " ".join(name_of_file)
+    with open(f"images/{str(num_of_photo [0])}.jpg", "wb") as file:
         file.write(img.content)
     num_of_photo[0] += 1
 
